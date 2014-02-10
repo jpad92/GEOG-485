@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+	</head>
+	<body>
+	<p>
+	Jenna Padilla<br>
+	January 29, 2014
+	</p>
+	<Lab Assignment 2/Milestone 3</h1>
+	<h2>Question 1</h2>
+	<p> I want use Black Hills, South Dakota as the area I want to depict in my map. I work there during the summers and it has become my second home. They have a recreational trail that runs north-south through the Black Hills and, eventually, I want to my map to progress and depict that trail.</p>
+	<h2>Question 2</h2>
+	<p>The center point of my area of interest is 43.965145, -103.711796.</p>
+	<h2> Question 3</h2>
+	<p> I believe I would like to use the satellite style of map because it shows the users what sort of scenery the bike path they would be travelling through. For example, it can be through forest, meadows, or city.</p>
+	<h2>Question 4</h2>
+	<p> I would be using a regional scale for my map, as the Black Hills is 125 miles long and 65 miles wide. I think a 7-8 would be a reasonable default zoom for my map.</p>
+	<h2>Sample Map</h2>
+	<p>
+	<style type="text/css">
+		#map_canvas {width:90%;
+			height:80%;
+			margin-left:
+			auto;
+			margin-right:auto }
+	</style>
+	<script type="text/javascript">
+		function initialize() {
+			var classroom = new google.maps.LatLng(43.965145,-103.711796)
+			var myOptions = {
+				zoom: 7,
+				center: classroom,
+				mapTypeId: google.maps.MapTypeId.SATELLITE
+			};
+			var map = new google.maps.Map(document.getElementById("map_canvas"),
+				myOptions);
+		}
+	</script>
+	</p>
+	
+	<body onload="initialize()">
+		<div id="map_canvas"></div>
+	</body>
+
+</html>
