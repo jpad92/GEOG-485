@@ -25,35 +25,33 @@
 				var myOptions = {
 					zoom: 9,
 					center: albuquerque,
-					mapTypeId: google.maps.MapTypeId.SATELITTE
+					mapTypeId: google.maps.MapTypeId.SATELITTE,
 					styles: [
 							{
-								"featureType": "water",
-								"stylers": [
-									{ "hue": "#ff006e" }
+								featureType: "water",
+								stylers: [
+									{ hue: "#ff006e" }
 								]
 							},{
-								"featureType": "road",
-								"stylers": [
-									{ "hue": "#0000ff" },
-									{ "saturation": 100 }
+								featureType: "road",
+								stylers: [
+									{ hue: "#0000ff" },
+									{ saturation: 100 }
 								]
 							},{
-								"featureType": "poi",
-								"stylers": [
-									{ "hue": "#ff0000" }
+								featureType: "poi",
+								stylers: [
+									{ hue: "#ff0000" }
 								]
 							},{
-								"featureType": "landscape.natural.landcover",
-								"stylers": [
-									{ "hue": "#ff1100" }
+								featureType: "landscape.natural.landcover",
+								stylers: [
+									{ hue: "#ff1100" }
 								]
 							}
 						]
-					}
 				};
-				var map = new google.maps.Map(
-					document.getElementById("map_canvas"),
+				var map = new google.maps.Map(document.getElementById("map_canvas"),
 					myOptions);
 			}
 		</script>
