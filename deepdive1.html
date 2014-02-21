@@ -182,11 +182,12 @@
 			var edgemontInfoContent = '<div class="infoBox">' +
 				'<p>Here is the beginning of the Mickelson Trail. Mile Marker- 0</p>' +
 				'</div>
-			var edgemontInfoWindow = new google.maps.InfoWindow({content: edgemontInfoContent
+			var edgemontInfoWindow = new google.maps.InfoWindow({
+				content: edgemontInfoContent
 			});
 			google.maps.event.addListener(edgemontMarker,'click', function() {
-			edgemontInfoWindow.open(map,edgemontMarker);
-			});
+				edgemontInfoWindow.open(map,edgemontMarker);
+				});
 			}
 		</script>
 	</head>
