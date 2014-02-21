@@ -179,13 +179,13 @@
 				strokeWeight: 2
 			});
 			mickelsontrailPath.setMap(map);
-			var EdgemontInfoContent = '<div class="infoBox">' +
-			'<p>Here is the beginning of the Mickelson Trail. Mile Marker- 0</p>' +
-			'</div>
-			varInfoWindow = new google.maps.InfoWindow({content: EdgemontInfoContent
+			var edgemontInfoContent = '<div class="infoBox">' +
+				'<p>Here is the beginning of the Mickelson Trail. Mile Marker- 0</p>' +
+				'</div>
+			var edgemontInfoWindow = new google.maps.InfoWindow({content: edgemontInfoContent
 			});
 			google.maps.event.addListener(edgemontMarker,'click', function() {
-			EdgemontInfoWindow.open(map,edgemontMarker);
+			edgemontInfoWindow.open(map,edgemontMarker);
 			});
 			}
 		</script>
