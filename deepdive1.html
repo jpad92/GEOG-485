@@ -15,9 +15,10 @@
 				height:80%;
 				margin-left: auto;
 				margin-right: auto }
+			.infobox {color: black}
 		</style>
 		<script type="text/javascript"
-			src="http://maps.google.com/maps/api/js?sensor=false">
+			src="http://maps.google.com/maps/api/js?v=3.2&sensor=false">
 		</script>
 		<script type="text/javascript">
 			function initialize() {
@@ -36,7 +37,7 @@
 				var pringle = new google.maps.LatLng(43.609095,-103.592929)
 				var edgemont = new google.maps.LatLng(43.298250,-103.824724)
 				var myOptions = {
-					zoom: 8,
+					zoom: 9,
 					center: hillcity,
 					mapTypeId: google.maps.MapTypeId.SATELITTE
 					};
@@ -179,6 +180,7 @@
 				strokeWeight: 2
 			});
 			mickelsontrailPath.setMap(map);
+			
 			var edgemontInfoContent = '<div class="infoBox">' +
 				'<p>Here is the beginning of the Mickelson Trail. Mile Marker- 0</p>' +
 				'</div>'
@@ -188,13 +190,56 @@
 			google.maps.event.addListener(edgemontMarker,'click', function() {
 				edgemontInfoWindow.open(map,edgemontMarker);
 				});
+				
+				
+			var custerInfoContent = '<div class="infoBox">' +
+				'<p>Custer Trailhead: This stop is located in the small town of Custer, SD where there are water and restroom amenities. Also, restuarants and shops are within walking distances if you are interested in exploring further scenes of the Black Hills.</p>' +
+				'</div>'
+			var custerInfoWindow = new google.maps.InfoWindow({
+				content: custerInfoContent
+			});
+			google.maps.event.addListener(custerMarker,'click', function() {
+				custerInfoWindow.open(map,custerMarker);
+				});
+				
+			var hillcityInfoContent = '<div class="infoBox">' +
+				'<p> Hill City Trailhead: This stop is located in the small town of Hill City, SD where there are water and restroom amenities. Once again, restaurants and shops are within walking distance as well as the popular 1880 Train attraction that people of all ages can enjoy.</p>' +
+				'</div>'
+			var hillcityInfoWindow = new google.maps.InfoWindow({
+				content: hillcityInfoContent
+			});
+			google.maps.event.addListener(hillcityMarker,'click', function() {
+				hillcityInfoWindow.open(map,hillcityMarker);
+				});
+			
+			var leadInfoContent = '<div class="infoBox">' +
+				'<p>Lead Trailhead: This stop is located in the town of Lead, SD where there are water and restroom amenities. The historic town of Lead is the home of the Homestake Mine that was once the largest and deepest mining operation in the United States.</p>' +
+				'</div>'
+			var leadInfoWindow = new google.maps.InfoWindow({
+				content: leadInfoContent
+			});
+			google.maps.event.addListener(leadMarker,'click', function() {
+				leadInfoWindow.open(map,leadMarker);
+				});
+				
+			var deadwoodInfoContent = '<div class="infoBox">' +
+				'<p>Deadwood Trailhead: The end of the Mickelson Trail. The final stop of the Mickelson Trail is in the historic town of Deadwood, SD. Here there are restaurants and shops, as well as casinos to play in after the long but beautiful ride through the Black Hills.</p>' +
+				'</div>'
+			var deadwoodInfoWindow = new google.maps.InfoWindow({
+				content: deadwoodInfoContent
+			});
+			google.maps.event.addListener(deadwoodMarker,'click', function() {
+				deadwoodInfoWindow.open(map,deadwoodMarker);
+				});
+				
+				
 			}
 		</script>
 	</head>
 	
 	<body onload="initialize()">
 	  <h1>Mickelson Trail</h1>
-	  <p> This is a map of the Mickelson Recreation Trail in the Black Hills National Forest, South Dakota. I wanted to show the path of the trail and also show where the trailheads of the trail are. The locations of the trailheads are important because they have bathroom and water facilities, as well being the parking lots for users. This trail is 109 miles long, starting in Edgemont, SD and ending in Deadwood, SD. I love this recreational trail and I hope to one day cover the entire trail by running or biking.</p> 
+	  <p> This is a map of the Mickelson Recreation Trail in the Black Hills National Forest, South Dakota. I wanted to show the path of the trail and also show where the trailheads of the trail is. This trail is 109 miles long, starting in Edgemont, SD and ending in Deadwood, SD. There are info boxes at the five major towns that the trail passes through: Edgemont, Custer, Hill City, Lead, and Deadwood. I love this recreational trail and I hope to one day cover the entire trail by running or biking.</p> 
 	  <div id="map_canvas"></div>
 	</body>
 
