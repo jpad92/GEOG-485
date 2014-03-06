@@ -1,0 +1,65 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+	</head>
+	<body>
+	<p>
+	Jenna Padilla
+	</p>
+	<h1 align="center">Lab Assignment 2/Milestone 3</h1>
+	<h2>Question 1</h2>
+	<p> I am using three datasets from the New Mexico Resource Geographic + 
+	Information System website. The first is the New Mexico County boundaries. This + 
+	is a vector type data. The second dataset is the Wheeler Peak Topographic Quad and is +
+	raster type data. The final dataset is New Mexico Populated Places and this is vector type data.</p>
+	<h2>Question 2</h2>
+	<p> New Mexico County Boundaries:<br> 
+				<ul>
+				<li>Projection for this shapefile is WGS 1984.
+				<li>The spatial extent of the shapefile is (-109.050170, 31.332170)-(-103.001960, 37.000293).
+				<li>This raster dataset has 33 features.
+				</ul>
+		New Mexico Populated Cities:<br>
+				<ul>
+				<li>Projection for this shapefile is WGS 1984. 
+				<li>The spatial extent of the shapefile is (-109.041204, 0.000000)-(0.000000, 36.998617). 
+				<li>This raster dataset has 2217 features.
+				</ul>
+		Wheeler Peak Topographic Map:<br>
+				<ul>
+				<li>Projection system is NAD 27 (UTM zone 13N). 
+				<li>The corner coordinates of the file is<br> 
+			Upper Left  (  407863.776, 4097699.064) (106d 2'8.83"W, 37d 1'22.05"N)<br>
+			Lower Left  (  407863.776, 4036678.104) (106d 1'42.31"W, 36d28'21.99"N)<br>
+			Upper Right (  512775.936, 4097699.064) (104d51'22.91"W, 37d 1'38.01"N)<br>
+			Lower Right (  512775.936, 4036678.104) (104d51'26.59"W, 36d28'37.64"N)<br>
+			Center      (  460319.856, 4067188.584) (105d26'40.23"W, 36d45'5.17"N)<br>
+				<li>The pixel resolution unit is 2 pixels/inch. The x-resolution is 72 and the y-resolution is 72.
+				</ul>
+	</p>
+	<h2> Question 3</h2>
+	<p> New Mexico County Boundries Input/Output:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;c:\>cs2cs +init="EPSG:4326" +to +init="EPSG:26913"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;103.001960W&nbsp;&nbsp;37.000293N<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;677787.08&nbsp;&nbsp;4096770.90 0.00
+	</p>
+	<p> New Mexico Populated Cities:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;C:\>cs2cs +init="EPSG:4326" +to +init="EPSG:26913"<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;109.041204W&nbsp;&nbsp;36.998617N<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;140340.19&nbsp;&nbsp;4102359.29&nbsp;0.00<br>
+	</p>
+	<p>Wheeler Peak Topography:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;This dataset is already in UTM Zone 13N, NAD27.
+	</p>
+</html>
