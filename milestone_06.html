@@ -1,0 +1,64 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+	</head>
+	<body>
+	<p>
+	Jenna Padilla
+	</p>
+	<h1 align="center">Milestone 6</h1>
+	<h2>Question 1</h2>
+	<p> I used Google search engine, this is the engine I use on a normal basis.</p>
+	
+	<h2>Question 2</h2>
+	<p>There are 28,700 results.</p>
+	
+	<h2>Question 3</h2>
+	<p> The hits gave very useful information in regarding how to fulfil the GetCapabilities  requests. However, it is not as common for the hits to give actual live WMS services as opposed to examples. When writing the example of the web address, they would use "servername" or "hostname" for the URL domain name.</p>
+
+	<h2>Question 4 (Service #1)</h2>
+	<ul>
+	<li>http://LIDARserver.com/vancouver?SERVICE=WMS&REQUEST=GetCapabilities
+	<li>Lidar WMS as powered by Lidar Server from GCoherent Software
+	<li>The formats that are available for the GetMap requests from the service are: image/png, image/gif, and image/jpeg.
+	<li>There are four layers included in the service.
+	</ul>
+	
+	<h2>Question 4 (Service #2)</h2>
+	<ul>
+	<li>http://suite.opengeo.org/geoserver/wms?service=WMS&version=1.3.0&request=GetCapabilities
+	<li>GeoServer Web Map Service
+	<li>The formats that are available for the GetMap requests from the service are: image/png, application/atom+xml, application/pdf, and application/vnd.google-earth.kml+xml. Then there is a format tab of application/vnd.google-earth.kml+xml;mode=networklink with the formats of application/vnd.google-earth.kmz, image/geotiff, image/geotiff8, image/gif, image/jpeg, image/png, image/svg+xml, image/tiff, and image/tiff8 under this tab.
+	<li>There are 23 layers included in the service.
+	</ul>
+	
+	<h2>Question 5 (Service #1)</h2>
+	<ul>
+	<li>Boundaries
+	<li>SRS=EPSG:26910
+	<li>NAD83/UTM zone 10N
+	<li>minx="488303.370000" miny="5457476.160000" maxx="495305.280000" maxy="5462478.150000"
+	
+	<h2>Question 6</h2>
+	<p>The images for both of the pixels look distorted, as if Bernalillo County had shrunk in width but not in height.
+	<ul>
+	<li> For the 200x200 pixel of Bernalillo County, the GetCapabilities request is:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=2007fe_35_county&WIDTH=200&HEIGHT=200&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	<img src="http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=2007fe_35_county&WIDTH=200&HEIGHT=200&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=" alt="200x200 Bernalillo County">
+	<li>For the 500x500 pixel of Bernalillo County, the request is:<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=2007fe_35_county&WIDTH=500&HEIGHT=500&SRS=EPSG:4326&FORMAT=image/png&STYLES=
+	<img src="http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-107.2,34.7,-106,35.25&LAYERS=2007fe_35_county&WIDTH=500&HEIGHT=500&SRS=EPSG:4326&FORMAT=image/png&STYLES=" alt="500x500 Bernalillo County">
+	
+	<h2>Question 7</h2>
+	http://jpad92.github.io/GEOG-485/question7.kml
