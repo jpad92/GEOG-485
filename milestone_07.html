@@ -1,0 +1,82 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+	</head>
+	<body>
+	<p>
+	Jenna Padilla
+	</p>
+	<h1 align="center">Milestone 7</h1>
+	<h2>Question 1</h2>
+	<p> BBOX width = (maxx) - (minx) = (-106.5)- (-109.5) = 3 degrees<br>
+		BBOX height = (maxy) - (miny) = (36.5) - (34.5) = 2 degrees<br>
+		BBOX aspect ratio = (BBOX width) / (BBOX height) = (3) / (2) = 1.5<br>
+		Therefore, the aspect ration of this geographic region is 1.5.</p>
+	
+	<h2>Question 2</h2>
+	<p>width = 600
+		aspect ratio = width / height = 200 / height = 1.5<br>
+		height = (width) / (aspect ratio) = 600 / 1.5 = 400 pixels </p>
+	
+	<h2>Question 3</h2>
+	<ul>
+	<li>WMS Request:<br>
+		http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&LAYERS=2007fe_35_county&WIDTH=600&HEIGHT=400&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	<li>Map Image:
+	<img src="http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&LAYERS=2007fe_35_county&WIDTH=600&HEIGHT=400&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=">
+	
+	<h2>Question 4</h2>
+	<p>image aspect ratio = (width) / (height) = (900) / (600) = 1.5<br>
+		BBOX aspect ratio = (width) / (height) = (3) / (height in degrees) = 1.5<br>
+		BBOX height = (width) / (BBOX aspect ratio) = (3) / (1.5) = 2<br>
+		<br>
+		BBOX Max Y = (BBOX Min Y) + (BBOX height) = (34.5) + (2) = 36.5
+		<ul>
+		<li>WMS Request:<br>
+			http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&LAYERS=2007fe_35_county&WIDTH=900&HEIGHT=600&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+		<li>Map Image:
+		<img src="http://gstore.unm.edu/apps/rgis/datasets/92403ebf-aec5-404b-ae8a-6db41f388737/services/ogc/wms?VERSION=1.1.1&SERVICE=WMS&REQUEST=GetMap&BBOX=-109.5,34.5,-106.5,36.5&LAYERS=2007fe_35_county&WIDTH=900&HEIGHT=600&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=">
+	
+	<h2>Question 5</h2>
+	<p>
+	<ul>
+	<li> WMS Request for Layer 0:<br>
+		http://raster.nationalmap.gov/ArcGIS/services/TNM_Large_Scale_Imagery/MapServer/WMSServer?VERSION=1.1.1&SERVICE=WMS&request=GetMap&BBOX=-106.639,35.074,-106.609,35.094&LAYERS=0&WIDTH=600&HEIGHT=400&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	<li>Map Image:
+	<img src="http://raster.nationalmap.gov/ArcGIS/services/TNM_Large_Scale_Imagery/MapServer/WMSServer?VERSION=1.1.1&SERVICE=WMS&request=GetMap&BBOX=-106.639,35.074,-106.609,35.094&LAYERS=0&WIDTH=600&HEIGHT=400&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=">
+	<br>
+	<li>WMS Request for Layer 1:<br>
+		http://raster.nationalmap.gov/ArcGIS/services/TNM_Large_Scale_Imagery/MapServer/WMSServer?VERSION=1.1.1&SERVICE=WMS&request=GetMap&BBOX=-106.639,35.074,-106.609,35.094&LAYERS=1&WIDTH=600&HEIGHT=400&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	
+	<h2>Question 6</h2>
+	<p>Layer 1 (1_foot_imagery) returned a blank map image.</p>
+	
+	<h2>Question 7</h2>
+	<p>The "MaxScaleDenominator" provides information about the scales for which the layer will return map images containing data.</p>
+	
+	<h2>Question 8</h2>
+	<p>Layer 1 (1_foot_imagery) and Layer 0 (TNM_Large_Scale_Imagery) contained data for the 1200x800 pixel size but returned a blank map for the 30x13 pixel size.<br>
+		<br>
+		BBOX width = (maxx) - (minx) = (-106.609)- (-106.639) = .03 degrees<br>
+		BBOX height = (maxy) - (miny) = (35.094) - (35.074) = .02 degrees<br>
+		BBOX aspect ratio = (BBOX width) / (BBOX height) = (3) / (2) = 1.5<br>
+		<br>
+		width = 30<br>
+		aspect ratio = width / height = 30 / height = 1.5<br>
+		height = (width) / (aspect ratio) = 20 / 1.5 = 13.3 pixels<br>
+		<br>
+		width = 1200<br>
+		aspect ratio = width / height = 1200 / height = 1.5<br>
+		height = (width) / (aspect ratio) = 1200 / 1.5 =  800 pixels
+</html>
