@@ -1,0 +1,86 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+	</head>
+	<body>
+	<p>
+	Jenna Padilla
+	</p>
+	<h1 align="center">GEOG 485L/585L Midterm Exam</h1>
+	
+	<h2>Question 1</h2>
+	<ul>
+	<li>For the spacial extent of a GML file, we would use the <u>gdalinfo</u> command line utility.
+	<li>To find the spatial reference system of a raster file, we would use <u>ogrinfo</u> command line utility.
+	</ul>
+	
+	<h2>Question 2</h2>
+	<ol>
+	<li>I would use, <u>service=WMS&version=1.3.0&request=GetCapabilities</u>. This would give us the bounding box of an available layer.
+	<li>To obtain a list of coverages from Web coverage service, I would use, <u>SERVICE=wcs&REQUEST=GetCapabilities&VERSION=1.1.2</u>.
+	<li>To determine what file formats are supported by a Web Feature Feature Service, I would use, <u>SERVICE=wfs&REQUEST=GetCapabilities&VERSION=1.0.0</u>.
+	<li>To retrieve a map image, an example of a request would be <u>VERSION=1.1.1&SERVICE=WMS&request=GetMap&BBOX=-106.639,35.074,-106.609,35.094&LAYERS=0&WIDTH=1200&HEIGHT=800&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES</u>.
+	<li>To retrieve data from a specific available coverage, a request would be <u>SERVICE=wcs&REQUEST=DescribeCoverage&VERSION=1.1.2&COVERAGE=(nameofcoverage)</u>.
+	</ol>
+	
+	<h2>Question 3</h2>
+	<ol>
+	<li>C:\Users\Jenna\Desktop>cs2cs +init="EPSG:4326" +to +init="EPSG:26913"<br>
+	-105.939670 35.682180
+	414970.04       3949105.23 0.00
+	<li>C:\Users\Jenna\Desktop>cs2cs +init="EPSG:4326" +to +init="EPSG:26913"<br>
+	-105.939670 35.682180
+	232227.14       3864983.25 0.00
+	</ol>
+	
+	<h2>Question 4</h2>
+	<ol>
+	<li>The name of the service is <u>OGC:WMS</u>.
+	<li>The file formats that are supported by the GetMap request are <u>image/png</u> and <u>image/jpeg</u>.
+	<li>The names of three layers are <u>MOD14A1_M_FIRE</u>, <u>MOD14A1_E_FIRE</u>, and <u>MOD14A1_D_FIRE</u>.
+	</ol>
+	
+	<h2>Question 5</h2>
+	<ul>
+	<li>http://neowms.sci.gsfc.nasa.gov/wms/wms?version=1.1.1&service=WMS&request=GetMap&BBOX=-128,21.5,-62,54.5&LAYERS=MOD_LSTD_CLIM_M&WIDTH=1200&HEIGHT=581&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	<li>Resulting Image:
+	<img src="http://neowms.sci.gsfc.nasa.gov/wms/wms?version=1.1.1&service=WMS&request=GetMap&BBOX=-128,21.5,-62,54.5&LAYERS=MOD_LSTD_CLIM_M&WIDTH=1200&HEIGHT=581&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=">
+	
+	<h2>Question 6</h2>
+	<ol>
+	<li>The title for the service is <u>WFS_transportation</u>.
+	<li>The file format that are supported by the GetFeature request is <u>HTTP</u>. 
+	<li>The DefaultSRS is EPSG 4326, WGS 84 for the "WFS_transportation:Interstate."
+	<li>The WGS 84 Bounding Box is LowerCorner(-158.10419299999992 21.277850000000058) UpperCorner(-67.781173999999908 49.002374000000088)
+	</ol>
+	
+	<h2>Question 7</h2>
+	<ol>
+	<li>The description of the v coverage reads, <u>s-1 true surface_northwards_sea_water_velocity</u>.
+	<li>There are <u>four</u> coverages available from this service.
+	</ol>
+	
+	<h2>Question 8a</h2>
+	<ul>
+	<li>http://sdf.ndbc.noaa.gov/thredds/wcs/hfradar_uswc_500m?request=DescribeCoverage&version=1.0.0&service=WCS&Coverage=v
+	</ul>
+	
+	<h2>Question 8b</h2>
+	<ol>
+	<li>The spatial domain of the v coverage is <u>CRS84</u>, or the basic WGS84.
+	<li>The file formats that are available for 'v' data delivered by this service are GeoTIFF, GeoTIFF_Float, and NetCDF3.
+	<li>The SRS(s) that are supported by this service for requested data delivery are CRS84 and EPSG:0 (Latitude_Longitude).
+	</ol>
+
+</html>
