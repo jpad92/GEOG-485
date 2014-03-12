@@ -1,0 +1,78 @@
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+		<style type="text/css">
+			html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+	</head>
+	<body>
+	<p>
+	Jenna Padilla
+	</p>
+	<h1 align="center">Deep Dive 2</h1>
+	
+	<h2>Question 1</h2>
+	<p>The "Get Capabilities" request type is common across all three OGC web services.</p>
+	
+	<h2>Question 2</h2>
+	<ul>
+	<li>The required parameters are the requests of the service that are required to add in order to fufill a full WMS request. The required parameters for a WMS request are: WMTVER=1.0.0(request the version type), SERVICE=WMS (service type), and REQUEST=GetCapabilities (request name).
+	<li>With a GetCapabilitiese request, information on the service itself is given such as the title, name, abstract, and contact information of the service. Then, the actual capabilities of the file is given with the format of the dataset. Map information of the dataset is given in the GetMap section of the request such as the possible formats of the map and feature information of different possible layers within the map.
+	</ul>
+	
+	<h2>Question 3</h2>
+	<ul>
+	<li>The required parameters for a WMS GetMap request are: VERSION=version (need to which version you are writing in), REQUEST=GetMap (request name), LAYERS=layer_list (need to name and pinpoint which map layers wanted), STYLES=style_list (rendering style per requested layer), SRS(or CRS)=namespace:identifier (define spatial reference system of map), BBOX=minx,miny,maxx,maxy (define the bounding box corners of map area), WIDTH=output_width & HEIGHT=output_height (width & height in pixels of map picture), and FORMAT=output_format (the output format wanted for map).
+	<li>A picture of the map you defined in the GetMap request is returned in response to a WMS GetMap request.
+	<li>The significance of transparancy is whether you want to map background should to be transparent or not. The more transparent, the more the map background stands out.
+
+	<h2>Question 4</h2>
+	<p>In order to inform the configuration of a client application about an OGC service that I want to add layers from, I would use WFS service with a TRANSACTION request in order to creat, update, and delete features.</p>
+	
+	<h2>Question 5</h2>
+	<ul>
+	<li>SERVICE=WMS&REQUEST=GetMap
+	<li>SERVICE=WMS&REQUEST=GetFeatureInfo
+	<li>SERVICE=WMS&REQUEST=GetMap
+	</ul>
+	
+	<h2>Question 6</h2>
+	<ul>
+	<li>WGS 84: EPSG:4326
+	<li>NAD83/UTM zone 13N: EPSG:2151
+	<li>NAD 27/UTM zone 13N: EPSG:26713
+	</ul>
+	
+	<h2>Question 7</h2>
+	C:\Users\Jenna\Desktop>cs2cs +init="EPSG:4326" +to +init="EPSG:2151"<br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;107d36'30.67"W 35d14'19.29"N<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>262633.94       3902632.48 0.00</b><br>
+	<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;103d19'28.49"W 34d16'40.34"N<br>
+	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<b>654223.84       3794236.77 0.00</b><br>
+	
+	<h2>Question 8</h2>
+	<ul>
+	<li>The title of the service is rgis Dataset (715663ba-c1c3-414c-84a7-c671526f8316)
+	<li>The contact person for the questions about the service is GStore Support.
+	<li>The available image formats for the GetMap request for this service are image/png, image/gif, image/jpeg, image/png, and image/tiff.
+	<li>The SRS/CRS's for which the layers are available are EPSG: 4269, 4326, 4267, 26913, 26912, 26914, 26713, 26712, 26714 and 3857. The main SRS of the only layer in this data set is EPSG:4326.
+	</ul>
+	
+	<h2>Question 9</h2>
+	<ul>
+	<li>GetMap Request: http://gstore.unm.edu/apps/rgis/datasets/715663ba-c1c3-414c-84a7-c671526f8316/services/ogc/wms?SERVICE=wms&REQUEST=GetMap&VERSION=1.1.1&BBOX=-106.75,35,-106.70,35.05&LAYERS=tl_2010_35_bg10&WIDTH=500&HEIGHT=500&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=
+	<li>Returned Map Image:
+	<img src="http://gstore.unm.edu/apps/rgis/datasets/715663ba-c1c3-414c-84a7-c671526f8316/services/ogc/wms?SERVICE=wms&REQUEST=GetMap&VERSION=1.1.1&BBOX=-106.75,35,-106.70,35.05&LAYERS=tl_2010_35_bg10&WIDTH=500&HEIGHT=500&SRS=EPSG:4326&FORMAT=image/jpeg&STYLES=">
+	
+</html>
+	
