@@ -1,0 +1,106 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        // define global variables
+        var lon = -106.107674;
+        var lat = 34.705493;
+        var zoom = 7;
+        var map;
+        var layer, countiesLayer, federallandsLayer;
+        
+        // define map controls
+        var baseControls = [
+        	new OpenLayers.Control.Navigation({}),
+        	new OpenLayers.Control.PanZoomBar({}),
+			new OpenLayers.Control.LayerSwitcher({}),
+			new OpenLayers.Control.Permalink(),
+			new OpenLayers.Control.MousePosition({})
+        ];
+
+        // =============== Initialization function ===================
+        function init(){
+            //map = new OpenLayers.Map( 'map' );
+            
+            map = new OpenLayers.Map('map', {
+				projection: 'EPSG:900913',
+				maxExtent: new OpenLayers.Bounds(-20037508, -20037508,
+				20037508, 20037508.34),
+				maxResolution: 156543.0339,
+				units: 'm', 
+				controls: baseControls
+			});
+            
+			// =========== OSM Map ====================
+            layer = new OpenLayers.Layer.OSM( "Open Street Map");
+            map.addLayer(layer);
+            
+            // =========== USGS National Atlas WMS ====
+            // from USGS National Atlas: http://webservices.nationalatlas.gov/wms/boundaries?SERVICE=WMS&REQUEST=GetCapabilities
+            countiesLayer = new OpenLayers.Layer.WMS( 
+            	"US Counties", 
+            	"http://webservices.nationalatlas.gov/wms?",
+            	{layers: "counties", version: '1.3.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(countiesLayer);
+		
+            federallandsLayer = new OpenLayers.Layer.WMS( 
+            	"US Federal Lands", 
+            	"http://webservices.nationalatlas.gov/wms?",
+            	{layers: "federallands", version: '1.3.0',transparent: 'TRUE'},
+            	{isBaseLayer: false, visibility: false}
+            );
+            map.addLayer(federallandsLayer);
+			
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), zoom
+            );
+
+            map.addControl(new OpenLayers.Control.OverviewMap() );
+            map.addControl(new OpenLayers.Control.Scale() );
+            map.addControl(new OpenLayers.Control.ScaleLine() );
+        }
+        // =============== End of Initialization Function ============
+        
+	</script>
+	<style type="text/css">
+		#map {width:90%; height:500px}
+		html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: center;
+				font-family: verdana;
+				}
+			#map { width:90%;
+				height:80%;
+				margin-left: auto;
+				margin-right: auto }
+	</style>
+  </head>
+  
+    <h1>Basic OpenLayers Map- Milestone 10</h1>
+	<p>Jenna Padilla</p><br>
+	<div align="left">
+	<h2>Question 1</h2>
+	<p>The area I am wanting to depict in my map is the State of New Mexico and the federal lands located within New Mexico. I enjoy exploring the federal lands, and with this interactive map, can locate where they are in the state.</p>
+	<h2>Question 2</h2>
+	<p>The center point of my area of interest is -106.107674, 34.705493. Right at the heart of New Mexico.</p>
+	<h2>Question 3</h2>
+	<p>I used the OpenLayer base map to try out this example as opposed to Google API. It is interesting to use the different maps available to us, and explore what they have to offer in comparison with others.</p>
+	<h2>Question 4</h2>
+	<p>The scale of my map is between local and regional (zoom level: 7). I wanted to basically show the entire state of New Mexico, no more and not too much less. This way, the user can navigate around the state to locate the federal lands.</p>
+	</div>
+  <body onload="init()">
+
+	<!-- Map DIV -->
+	<div id="map"></div>
+  </body>
+ 
+</html>
