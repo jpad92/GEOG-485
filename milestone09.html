@@ -1,0 +1,102 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        // define global variables
+        var lon = -106.107674;
+        var lat = 34.705493;
+        var zoom = 7;
+        var map;
+        var layer, countiesLayer, federallandsLayer;
+        
+        // define map controls
+        var baseControls = [
+        	new OpenLayers.Control.Navigation({}),
+        	new OpenLayers.Control.PanZoomBar({}),
+			new OpenLayers.Control.LayerSwitcher({}),
+			new OpenLayers.Control.Permalink(),
+			new OpenLayers.Control.MousePosition({})
+        ];
+
+        // =============== Initialization function ===================
+        function init(){
+            //map = new OpenLayers.Map( 'map' );
+            
+            map = new OpenLayers.Map('map', {
+				projection: 'EPSG:900913',
+				maxExtent: new OpenLayers.Bounds(-20037508, -20037508,
+				20037508, 20037508.34),
+				maxResolution: 156543.0339,
+				units: 'm', 
+				controls: baseControls
+			});
+            
+			// =========== OSM Map ====================
+            layer = new OpenLayers.Layer.OSM( "Open Street Map");
+            map.addLayer(layer);
+            
+            // =========== USGS National Atlas WMS ====
+            // from USGS National Atlas: http://webservices.nationalatlas.gov/wms/boundaries?SERVICE=WMS&REQUEST=GetCapabilities
+            countiesLayer = new OpenLayers.Layer.WMS( 
+            	"US Counties", 
+            	"http://webservices.nationalatlas.gov/wms?",
+            	{layers: "counties", version: '1.3.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(countiesLayer);
+		
+            federallandsLayer = new OpenLayers.Layer.WMS( 
+            	"US Federal Lands", 
+            	"http://webservices.nationalatlas.gov/wms?",
+            	{layers: "federallands", version: '1.3.0',transparent: 'TRUE'},
+            	{isBaseLayer: false, visibility: false}
+            );
+            map.addLayer(federallandsLayer);
+			
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), zoom
+            );
+
+            map.addControl(new OpenLayers.Control.OverviewMap() );
+            map.addControl(new OpenLayers.Control.Scale() );
+            map.addControl(new OpenLayers.Control.ScaleLine() );
+        }
+        // =============== End of Initialization Function ============
+        
+	</script>
+	<style type="text/css">
+		#map {width:90%; height:500px}
+		html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: center;
+				font-family: verdana;
+				}
+			#map { width:90%;
+				height:80%;
+				margin-left: auto;
+				margin-right: auto }
+	</style>
+  </head>
+  
+    <h1>Basic OpenLayers Map- Milestone 9</h1>
+	<p>Jenna Padilla</p><br>
+
+<img src=http://webservices.nationalatlas.gov/wms?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=federallands&format=image/png&STYLE=default /></a>
+
+
+  <body onload="init()">
+	<div id="map"></div>
+  </body>
+ <br>
+ <br>
+ <br>
+ <br>
+
+</html>
