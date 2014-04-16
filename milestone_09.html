@@ -5,7 +5,7 @@
         // define global variables
         var lon = -106.107674;
         var lat = 34.705493;
-        var zoom = 7;
+        var zoom = 6;
         var map;
         var layer, countiesLayer, federallandsLayer;
         
@@ -24,8 +24,8 @@
             
             map = new OpenLayers.Map('map', {
 				projection: 'EPSG:900913',
-				maxExtent: new OpenLayers.Bounds(-20037508, -20037508,
-				20037508, 20037508.34),
+				maxExtent: new OpenLayers.Bounds(-12144506, -12144506,
+				4446800.54, 4446800.54),
 				maxResolution: 156543.0339,
 				units: 'm', 
 				controls: baseControls
@@ -67,8 +67,24 @@
         // =============== End of Initialization Function ============
         
 	</script>
+	
+	Layers.localFeatures = new OpenLayers.Layer.Vector('My Local Features');
+    		map.addLayer(Layers.localFeatures);
+			
+			myBlackPointStyle = {
+    			pointRadius: 12, 
+    			fillColor: "#000000",
+    			fillOpacity: .5,
+    			strokeOpacity: .5}
+
+    		myAlbuquerqueStyle = {
+				pointRadius: 6
+    			strokeOpacity: .8,
+    			strokeColor: "#000000",
+    			strokeWidth: 1
+				title: "}
+				
 	<style type="text/css">
-		#map {width:90%; height:500px}
 		html { height: 100% }
 			body { height: 100%;
 				margin: 0px;
@@ -78,7 +94,7 @@
 				text-align: center;
 				font-family: verdana;
 				}
-			#map { width:90%;
+			#map { width:500px;
 				height:80%;
 				margin-left: auto;
 				margin-right: auto }
@@ -90,9 +106,10 @@
 
 <img src=http://webservices.nationalatlas.gov/wms?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=federallands&format=image/png&STYLE=default /></a>
 
-
+<br>
+<br>
   <body onload="init()">
-	<div id="map"></div>
+	<div align="center"><div id="map"></div></div>
   </body>
  <br>
  <br>
