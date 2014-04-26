@@ -1,0 +1,67 @@
+<html>
+		<style>
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: left;
+				font-family: verdana;
+				}
+		</style>
+    <h1 align="center">WMS and WFS Access in Quantum GIS- Milestone 10</h1>
+	<h2>Jenna Padilla</h2><br>
+	<br>
+	<h2>WMS Layers</h2>
+	<p>Layer Name: 0 (Title-USGS Topographic Basemap Small Scale)</p>
+	<p>Service: USGS NAtional Maps Service Endpoints Page</p>
+	<p>Request: http://basemap.nationalmap.gov/ArcGIS/services/USGSTopo/MapServer/WMSServer?</p><br>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/USGStopo.jpg"/><br>
+	<br>
+	<br>
+	
+	<p>Layer Name: 1 (Title-Wildfires)</p>
+	<p>Service: USGS NAtional Maps Service Endpoints Page</p>
+	<p>Request: http://rmgsc.cr.usgs.gov/ArcGIS/services/nhss_haz/MapServer/WMSServer?</p>
+	<p>*I added a transparent basics states map in the background for reference.</p>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/wildfires.jpg"/>
+	<br>
+	<br>
+	
+	<p>Layer Name: SurveyAreaPoly (Title-SSURGO Soil Survey Area Polygon)</p>
+	<p>Service: NRCS Soil Data Mart WMS Service</p>
+	<p>Request:http://SDMDataAccess.nrcs.usda.gov/Spatial/SDM.wms?SERVICE=WMS&REQUEST=GetCapabilities</p>
+	<p>*I added a transparent basics states map in the background for reference. This layer did not show on QGIS. I tried the others as well but they did not have an image either.</p>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/NRCSmap.jpg"/>
+	<br>
+	<br>
+	
+	<h2>WFS Layers</h2>
+	<p>Layer Name: nm_fedlands_08 (Title-New Mexico Federal Lands)</p>
+	<p>Service: UNM RGIS </p>
+	<p>Request:http://gstore.unm.edu/apps/rgis/datasets/745c32d9-bbac-4141-a2ba-bd60adb09710/services/ogc/wfs?VERSION=1.0.0</p><br>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/NMFedLands.jpg"/><br>
+	<br>
+	<br>
+	
+	<p>Layer Name: nmsf_districts (Title-New Mexico State Forestry Districts)</p>
+	<p>Service: UNM RGIS </p>
+	<p>Request:http://gstore.unm.edu/apps/rgis/datasets/6446b864-2b34-4337-9936-c5f2fab0241c/services/ogc/wfs?VERSION=1.0.0</p><br>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/NMForestDistricts.jpg"/><br>
+	<br>
+	<br>
+	
+	<p>Layer Name: WFS_geonames:Landforms (Title-Landforms)</p>
+	<p>Service: USGS GeoNames WFS Service </p>
+	<p>Request: http://services.nationalmap.gov/arcgis/services/WFS/geonames/MapServer/WFSServer?</p><br>
+	<br>
+	<img src="http://jpad92.github.io/GEOG-485/Landforms.jpg"/><br>
+	<br>
+	<br>
+
+</html>
