@@ -121,7 +121,8 @@
                 protocol: new OpenLayers.Protocol.HTTP({
                     url: "http://jpad92.github.io/GEOG-485/tl_2010_35001_tract10.kml",
                     format: new OpenLayers.Format.KML({
-                        extractAttributes: true
+                        extractAttributes: true,
+						extractStyles: true
 					})
                 })
             });
