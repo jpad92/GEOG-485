@@ -24,6 +24,7 @@
             
             map = new OpenLayers.Map('map', {
 				projection: 'EPSG:900913',
+				displayProjection: new OpenLayers.Projection("EPSG:4326"),
 				maxExtent: new OpenLayers.Bounds(-12144506, -12144506,
 				4446800.54, 4446800.54),
 				maxResolution: 156543.0339,
@@ -63,11 +64,9 @@
             map.addControl(new OpenLayers.Control.OverviewMap() );
             map.addControl(new OpenLayers.Control.Scale() );
             map.addControl(new OpenLayers.Control.ScaleLine() );
-        }
-        // =============== End of Initialization Function ============
-        	
-	Layers.localFeatures = new OpenLayers.Layer.Vector('My Local Features');
-    		map.addLayer(Layers.localFeatures);
+        
+			LocalFeatures = new OpenLayers.Layer.Vector('My Local Features');
+				map.addLayer(LocalFeatures);
 			
 			myTraderJoesPointStyle = {
     			pointRadius: 4, 
@@ -75,7 +74,7 @@
     			fillOpacity: .5,
     			strokeOpacity: .5}
 			
-			myNaturalGrocerslPointStyle = {
+			myNaturalGrocersPointStyle = {
     			pointRadius: 4, 
     			fillColor: "#F88A0C",
     			fillOpacity: .5,
@@ -112,9 +111,9 @@
 	var Point_Sprouts = new OpenLayers.Feature.Vector(Sprouts,null,mySproutsPointStyle);
 	var Point_WholeFoods = new OpenLayers.Feature.Vector(WholeFoods,null,myWholeFoodsPointStyle);
 	
-	Layers["localFeatures"].addFeatures([Point_TraderJoes, Point_NaturalGrocers, Point_Sprouts, Point_WholeFoods]);
+	LocalFeatures.addFeatures([Point_TraderJoes, Point_NaturalGrocers, Point_Sprouts, Point_WholeFoods]);
 	
-	Layers.ABQincome = new OpenLayers.Layer.Vector("KML -ABQ Income", {
+	ABQincome = new OpenLayers.Layer.Vector("KML -ABQ Income", {
                 projection: map.displayProjection,
                 visibility: false,
                 style: myABQIncomeStyle,
@@ -126,12 +125,13 @@
 					})
                 })
             });
-           	map.addLayer(Layers.ABQincome)	
+           	map.addLayer(ABQincome)	
            			
 			map.setCenter(
                 new OpenLayers.LonLat(lon, lat), zoom
             );
-
+	}
+        // =============== End of Initialization Function ============
 	</script>
 
 						
