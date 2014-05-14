@@ -97,14 +97,22 @@
     			strokeOpacity: .5,
     			strokeColor: "#ffffff"}
 				
-			var TraderJoes = new OpenLayers.Geometry.Point(-106.542771,35.173808);
-			var TraderJoes = new OpenLayers.Geometry.Point(-106.564744,35.101372);
-			var NaturalGrocers = new OpenLayers.Geometry.Point(-106.550324,35.129456);
-			var Sprouts = new OpenLayers.Geometry.Point(-106.513932,35.131141);
-			var Sprouts = new OpenLayers.Geometry.Point(-106.58397,35.148547);
-			var Sprouts = new OpenLayers.Geometry.Point(-106.591523,35.078898);
-			var WholeFoods = new OpenLayers.Geometry.Point(-106.55513,35.146863);
-			var WholeFoods = new OpenLayers.Geometry.Point(-106.617615,35.102496)
+			var TraderJoes = new OpenLayers.Geometry.Point(-106.542771,35.173808).transform(
+				map.displayProjection, map.projection);
+			var TraderJoes2 = new OpenLayers.Geometry.Point(-106.564744,35.101372).transform(
+				map.displayProjection, map.projection);
+			var NaturalGrocers = new OpenLayers.Geometry.Point(-106.550324,35.129456).transform(
+				map.displayProjection, map.projection);
+			var Sprouts = new OpenLayers.Geometry.Point(-106.513932,35.131141).transform(
+				map.displayProjection, map.projection);
+			var Sprouts2 = new OpenLayers.Geometry.Point(-106.58397,35.148547).transform(
+				map.displayProjection, map.projection);
+			var Sprouts3 = new OpenLayers.Geometry.Point(-106.591523,35.078898).transform(
+				map.displayProjection, map.projection);
+			var WholeFoods = new OpenLayers.Geometry.Point(-106.55513,35.146863).transform(
+				map.displayProjection, map.projection);
+			var WholeFoods2 = new OpenLayers.Geometry.Point(-106.617615,35.102496).transform(
+				map.displayProjection, map.projection)
 	
 	var Point_TraderJoes = new OpenLayers.Feature.Vector(TraderJoes,null,myTraderJoesPointStyle);
 	var Point_NaturalGrocers = new OpenLayers.Feature.Vector(NaturalGrocers,null,myNaturalGrocersPointStyle);
@@ -129,7 +137,8 @@
            	map.addLayer(ABQincome)	
            			
 			map.setCenter(
-                new OpenLayers.LonLat(lon, lat), zoom
+                new OpenLayers.LonLat(lon, lat).transform(
+				map.displayProjection, map.projection), zoom
             );
 	}
         // =============== End of Initialization Function ============
