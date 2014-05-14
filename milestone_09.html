@@ -71,25 +71,49 @@
 			myTraderJoesPointStyle = {
     			pointRadius: 4, 
     			fillColor: "#000000",
-    			fillOpacity: .5,
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			myTraderJoes2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#000000",
+    			fillOpacity: 1,
     			strokeOpacity: .5}
 			
 			myNaturalGrocersPointStyle = {
     			pointRadius: 4, 
     			fillColor: "#F88A0C",
-    			fillOpacity: .5,
+    			fillOpacity: 1,
     			strokeOpacity: .5}
 		
 			mySproutsPointStyle = {
     			pointRadius: 4, 
     			fillColor: "#04A90A",
-    			fillOpacity: .5,
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			mySprouts2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#04A90A",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			mySprouts3PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#04A90A",
+    			fillOpacity: 1,
     			strokeOpacity: .5}
 				
 			myWholeFoodsPointStyle = {
     			pointRadius: 4, 
     			fillColor: "#0C08FC",
-    			fillOpacity: .5,
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+				
+			myWholeFoods2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#0C08FC",
+    			fillOpacity: 1,
     			strokeOpacity: .5}
 
     		myABQIncomeStyle = {
@@ -115,11 +139,15 @@
 				map.displayProjection, map.projection)
 	
 	var Point_TraderJoes = new OpenLayers.Feature.Vector(TraderJoes,null,myTraderJoesPointStyle);
+	var Point_TraderJoes2 = new OpenLayers.Feature.Vector(TraderJoes2,null,myTraderJoes2PointStyle);
 	var Point_NaturalGrocers = new OpenLayers.Feature.Vector(NaturalGrocers,null,myNaturalGrocersPointStyle);
 	var Point_Sprouts = new OpenLayers.Feature.Vector(Sprouts,null,mySproutsPointStyle);
+	var Point_Sprouts2 = new OpenLayers.Feature.Vector(Sprouts2,null,mySprouts2PointStyle);
+	var Point_Sprouts3 = new OpenLayers.Feature.Vector(Sprouts3,null,mySprouts3PointStyle);
 	var Point_WholeFoods = new OpenLayers.Feature.Vector(WholeFoods,null,myWholeFoodsPointStyle);
+	var Point_WholeFoods2 = new OpenLayers.Feature.Vector(WholeFoods2,null,myWholeFoods2PointStyle);
 	
-	LocalFeatures.addFeatures([Point_TraderJoes, Point_NaturalGrocers, Point_Sprouts, Point_WholeFoods]);
+	LocalFeatures.addFeatures([Point_TraderJoes, Point_TraderJoes2, Point_NaturalGrocers, Point_Sprouts, Point_Sprouts2, Point_Sprouts3, Point_WholeFoods, Point_WholeFoods2]);
 	
 	ABQincome = new OpenLayers.Layer.Vector("KML -ABQ Income", {
                 projection: map.displayProjection,
