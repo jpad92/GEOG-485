@@ -102,6 +102,87 @@
 	
 	<img src="http://jpad92.github.io/GEOG-485/final_pic3.jpg" alt="http://jpad92.github.io/GEOG-485/final_pic3.jpg" height="600" width="1000"></a>
 
+	<h2>Question 4</h2>
 	
+	<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        // define global variables
+        var lon = -106.629288;
+        var lat = 35.105866;
+        var zoom = 11;
+        var map;
+        var layer, countiesLayer, federallandsLayer;
+        
+        // define map controls
+        var baseControls = [
+        	new OpenLayers.Control.Navigation({}),
+        	new OpenLayers.Control.PanZoomBar({}),
+			new OpenLayers.Control.LayerSwitcher({}),
+			new OpenLayers.Control.Permalink(),
+			new OpenLayers.Control.MousePosition({})
+        ];
+
+        // =============== Initialization function ===================
+        function init(){
+            //map = new OpenLayers.Map( 'map' );
+            
+            map = new OpenLayers.Map('map', {
+				projection: 'EPSG:900913',
+				displayProjection: new OpenLayers.Projection("EPSG:4326"),
+				maxExtent: new OpenLayers.Bounds(-12144506, -12144506,
+				4446800.54, 4446800.54),
+				maxResolution: 156543.0339,
+				units: 'm', 
+				controls: baseControls
+			});
+			
+			// =========== OSM Map ====================
+            layer = new OpenLayers.Layer.OSM( "Open Street Map");
+            map.addLayer(layer);
+            
+            // =========== USGS National Atlas WMS ====
+            // from USGS National Atlas: http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?version=1.1.0&request=GetCapabilities
+            A5_CONTLayer = new OpenLayers.Layer.WMS( 
+            	"s_jpad92:35106-A5_CONT", 
+            	"http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?",
+            	{layers: "counties", version: '1.1.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(A5_CONTLayer);
+		
+            A6_CONTLayer = new OpenLayers.Layer.WMS( 
+            	"s_jpad92:35106-A6_CONT", 
+            	"http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?",
+            	{layers: "federallands", version: '1.3.0',transparent: 'TRUE'},
+            	{isBaseLayer: false, visibility: false}
+            );
+            map.addLayer(A6_CONTLayer);
+			
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), zoom
+            );
+
+            map.addControl(new OpenLayers.Control.OverviewMap() );
+            map.addControl(new OpenLayers.Control.Scale() );
+            map.addControl(new OpenLayers.Control.ScaleLine() );
+        
+
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+				map.displayProjection, map.projection), zoom
+            );
+	}
+        // =============== End of Initialization Function ============
+	</script>
+
+						
+  <body onload="init()">
+	<div align="center"><div id="map"></div></div>
+  </body>
 
 	</html>
