@@ -1,0 +1,223 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <script type="text/javascript" src="http://openlayers.org/api/OpenLayers.js"></script>
+    <script type="text/javascript">
+        // define global variables
+        var lon = -106.629288;
+        var lat = 35.105866;
+        var zoom = 11;
+        var map;
+        var layer, countiesLayer, federallandsLayer;
+        
+        // define map controls
+        var baseControls = [
+        	new OpenLayers.Control.Navigation({}),
+        	new OpenLayers.Control.PanZoomBar({}),
+			new OpenLayers.Control.LayerSwitcher({}),
+			new OpenLayers.Control.Permalink(),
+			new OpenLayers.Control.MousePosition({})
+        ];
+
+        // =============== Initialization function ===================
+        function init(){
+            //map = new OpenLayers.Map( 'map' );
+            
+            map = new OpenLayers.Map('map', {
+				projection: 'EPSG:900913',
+				displayProjection: new OpenLayers.Projection("EPSG:4326"),
+				maxExtent: new OpenLayers.Bounds(-12144506, -12144506,
+				4446800.54, 4446800.54),
+				maxResolution: 156543.0339,
+				units: 'm', 
+				controls: baseControls
+			});
+			
+			// =========== OSM Map ====================
+            layer = new OpenLayers.Layer.OSM( "Open Street Map");
+            map.addLayer(layer);
+            
+            // =========== GEOSERVER layes ====
+             http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?service=WMS&version=1.1.1&request=GetCapabilities
+            countiesLayer = new OpenLayers.Layer.WMS( 
+            	"kb_2007fe_35_county00", 
+            	"http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?",
+            	{layers: "kb_2007fe_35_county00", extractStyles: "CountiesStyleFinal2",  version: '1.3.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(countiesLayer);
+		
+			http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?service=WMS&version=1.1.1&request=GetCapabilities
+            stateLayer = new OpenLayers.Layer.WMS( 
+            	"kb_tl_2010_35_state10", 
+            	"http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?",
+            	{layers: "kb_tl_2010_35_state10", extractStyles: "StateStyleFinal",  version: '1.3.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(stateLayer);
+			
+			http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?service=WMS&version=1.1.1&request=GetCapabilities
+            stateLayer = new OpenLayers.Layer.WMS( 
+            	"tl_2010_35035_roads", 
+            	"http://geog485.unm.edu:8080/geoserver/s_jpad92/wms?",
+            	{layers: "tl_2010_35035_roads", extractStyles: "InterstateRoadStyles",  version: '1.3.0', transparent: 'TRUE'},
+            	{isBaseLayer: false}
+            );
+            map.addLayer(stateLayer);
+			
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+                    new OpenLayers.Projection("EPSG:4326"),
+                    map.getProjectionObject()
+                ), zoom
+            );
+
+            map.addControl(new OpenLayers.Control.OverviewMap() );
+            map.addControl(new OpenLayers.Control.Scale() );
+            map.addControl(new OpenLayers.Control.ScaleLine() );
+        
+			LocalFeatures = new OpenLayers.Layer.Vector('My Local Features');
+				map.addLayer(LocalFeatures);
+			
+			myTraderJoesPointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#000000",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			myTraderJoes2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#000000",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			myNaturalGrocersPointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#F88A0C",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+		
+			mySproutsPointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#04A90A",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			mySprouts2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#04A90A",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+			
+			mySprouts3PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#04A90A",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+				
+			myWholeFoodsPointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#0C08FC",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+				
+			myWholeFoods2PointStyle = {
+    			pointRadius: 4, 
+    			fillColor: "#0C08FC",
+    			fillOpacity: 1,
+    			strokeOpacity: .5}
+
+    		myABQIncomeStyle = {
+    			fillOpacity: .2,
+    			strokeOpacity: .5,
+    			strokeColor: "#ffffff"}
+				
+			var TraderJoes = new OpenLayers.Geometry.Point(-106.542771,35.173808).transform(
+				map.displayProjection, map.projection);
+			var TraderJoes2 = new OpenLayers.Geometry.Point(-106.564744,35.101372).transform(
+				map.displayProjection, map.projection);
+			var NaturalGrocers = new OpenLayers.Geometry.Point(-106.550324,35.129456).transform(
+				map.displayProjection, map.projection);
+			var Sprouts = new OpenLayers.Geometry.Point(-106.513932,35.131141).transform(
+				map.displayProjection, map.projection);
+			var Sprouts2 = new OpenLayers.Geometry.Point(-106.58397,35.148547).transform(
+				map.displayProjection, map.projection);
+			var Sprouts3 = new OpenLayers.Geometry.Point(-106.591523,35.078898).transform(
+				map.displayProjection, map.projection);
+			var WholeFoods = new OpenLayers.Geometry.Point(-106.55513,35.146863).transform(
+				map.displayProjection, map.projection);
+			var WholeFoods2 = new OpenLayers.Geometry.Point(-106.617615,35.102496).transform(
+				map.displayProjection, map.projection)
+	
+	var Point_TraderJoes = new OpenLayers.Feature.Vector(TraderJoes,null,myTraderJoesPointStyle);
+	var Point_TraderJoes2 = new OpenLayers.Feature.Vector(TraderJoes2,null,myTraderJoes2PointStyle);
+	var Point_NaturalGrocers = new OpenLayers.Feature.Vector(NaturalGrocers,null,myNaturalGrocersPointStyle);
+	var Point_Sprouts = new OpenLayers.Feature.Vector(Sprouts,null,mySproutsPointStyle);
+	var Point_Sprouts2 = new OpenLayers.Feature.Vector(Sprouts2,null,mySprouts2PointStyle);
+	var Point_Sprouts3 = new OpenLayers.Feature.Vector(Sprouts3,null,mySprouts3PointStyle);
+	var Point_WholeFoods = new OpenLayers.Feature.Vector(WholeFoods,null,myWholeFoodsPointStyle);
+	var Point_WholeFoods2 = new OpenLayers.Feature.Vector(WholeFoods2,null,myWholeFoods2PointStyle);
+	
+	LocalFeatures.addFeatures([Point_TraderJoes, Point_TraderJoes2, Point_NaturalGrocers, Point_Sprouts, Point_Sprouts2, Point_Sprouts3, Point_WholeFoods, Point_WholeFoods2]);
+	
+	ABQincome = new OpenLayers.Layer.Vector("KML -ABQ Income", {
+                projection: map.displayProjection,
+                visibility: false,
+                style: myABQIncomeStyle,
+                strategies: [new OpenLayers.Strategy.Fixed()],
+                protocol: new OpenLayers.Protocol.HTTP({
+                    url: "http://jpad92.github.io/GEOG-485/tl_2010_35001_tract10.kml",
+                    format: new OpenLayers.Format.KML({
+                        extractAttributes: true,
+						extractStyles: true
+					})
+                })
+            });
+           	map.addLayer(ABQincome)	
+           			
+			map.setCenter(
+                new OpenLayers.LonLat(lon, lat).transform(
+				map.displayProjection, map.projection), zoom
+            );
+	}
+        // =============== End of Initialization Function ============
+	</script>
+
+						
+	<style type="text/css">
+		html { height: 100% }
+			body { height: 100%;
+				margin: 0px;
+				padding: 0px;
+				background-color: black;
+				color: #CCCCCC;
+				text-align: center;
+				font-family: verdana;
+				}
+			#map { width:600px;
+				height:80%;
+				margin-left: auto;
+				margin-right: auto }
+	</style>
+  </head>
+  
+    <h1>Basic OpenLayers Map- Milestone 9</h1>
+	<p>Jenna Padilla</p><br>
+	
+<p align="left">I did not initially realize the last milestone map had to be an issue. Therefore, this map is different from the last week's. This is a map of Albuquerque with a KML layer of the income levels of the east side of the ABQ area (east of I-25) in comparison to organic food store locations. The black dots are the Trader Joes, the green dots are Sprouts, the orange dot is a Natural Grocers, and the blue dots are Whole Foods. It is common knowledge that organic food is expensive and serves the high income population instead of the general public. The darker the blue, the high the income. The more white, the lower the income. <p>
+
+<img src=http://webservices.nationalatlas.gov/wms?version=1.3.0&service=WMS&request=GetLegendGraphic&sld_version=1.1.0&layer=federallands&format=image/png&STYLE=default /></a>
+
+<img src=http://jpad92.github.io/GEOG-485/IncomeLegend.jpg></a>
+
+<br>
+<br>
+  <body onload="init()">
+	<div align="center"><div id="map"></div></div>
+  </body>
+ <br>
+ <br>
+ <br>
+ <br>
+ 
+
+</html>
